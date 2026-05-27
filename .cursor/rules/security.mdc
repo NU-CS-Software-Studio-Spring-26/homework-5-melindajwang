@@ -1,0 +1,11 @@
+---
+description: Security rules for the sample todo app
+alwaysApply: true
+---
+
+- Never write, log, echo, or expose secrets, API keys, `.env` values, or production credentials.
+- Never use `eval` or similar dynamic execution on user input.
+- Never use `html_safe` or `raw` on untrusted user input.
+- Use parameterized queries and ActiveRecord query methods; never string-interpolate SQL.
+- Do not disable CSRF protection, mass assignment protection, or session security checks.
+- Do not read or rely on files ignored by `.cursorignore`.

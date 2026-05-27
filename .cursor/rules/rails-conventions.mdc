@@ -1,0 +1,11 @@
+---
+description: Rails 8 conventions for the sample todo app
+alwaysApply: true
+---
+
+- Prefer Rails conventions and the existing MVC structure over custom architecture.
+- Use `bin/rails generate` for migrations, controllers, models, and boilerplate when possible.
+- Keep migrations reversible and focused on the todo app schema.
+- Use strong parameters through `params.expect(...)` or the existing controller pattern.
+- Prefer Turbo Streams and ERB partials over custom JavaScript for interactive todo UI changes.
+- Do not import models, migrations, or unrelated code from other projects.
