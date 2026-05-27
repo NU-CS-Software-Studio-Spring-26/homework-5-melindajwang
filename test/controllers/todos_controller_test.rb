@@ -45,4 +45,15 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to todos_url
   end
+
+  test "toggle_priority responds with a turbo stream that flips high_priority" do
+    was_priority = @todo.high_priority
+
+    patch toggle_priority_todo_url(@todo), as: :turbo_stream
+
+    assert_response :success
+    assert_equal "text/vnd.turbo-stream.html", @response.media_type
+    assert_match %r{turbo-stream action="replace" target="#{ActionView::RecordIdentifier.dom_id(@todo)}"}, @response.body
+    assert_equal !was_priority, @todo.reload.high_priority
+  end
 end

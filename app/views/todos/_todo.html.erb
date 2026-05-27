@@ -2,6 +2,16 @@
   <p>
     <strong>Description:</strong>
     <%= todo.description %>
+    <% if todo.high_priority? %>
+      <span style="color: red; font-weight: bold;">[High priority]</span>
+    <% end %>
   </p>
 
+  <p>
+    <%= button_to(
+          todo.high_priority? ? "Unmark high priority" : "Mark as high priority",
+          toggle_priority_todo_path(todo),
+          method: :patch
+        ) %>
+  </p>
 </div>
